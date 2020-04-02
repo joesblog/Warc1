@@ -27,29 +27,31 @@ namespace JS1
 
             //    part_2a();
             // part_3a_addDates();
-            part_3a_withdates();
+            //part_3a_withdates();
             //part_3a();
             //part2();
             //  part3();
 
             //  roughDump_1();
             // warc1();
+            warc1(@"C:\_temp\JustinTV\");
             Console.ReadLine();
         }
-
-        private static void warc1(string arc = "justintv_20140608112343.megawarc.warc.gz")
+        static string _placeToLook = "";
+        private static void warc1(string PlaceToLook = "", string arc = "justintv_20140608112343.megawarc.warc.gz")
         {
+            _placeToLook = PlaceToLook;
             Regex rgxId = new Regex(@"justintv_(\d+).*");
 
             string id = rgxId.Match(arc).Groups[1].Value;
-            string vids = $@"{root}{id}\vids\";
-            string thumbs = $@"{root}{id}\thumbs\";
+            string vids = $@"{_placeToLook}{id}\vids\";
+            string thumbs = $@"{_placeToLook}{id}\thumbs\";
 
 
             if (!Directory.Exists(vids)) Directory.CreateDirectory(vids);
             if (!Directory.Exists(thumbs)) Directory.CreateDirectory(thumbs);
 
-            Warc.WarcFile wf = new Warc.WarcFile($@"{root}justintv_{id}.megawarc.warc.gz");
+            Warc.WarcFile wf = new Warc.WarcFile($@"{_placeToLook}justintv_{id}.megawarc.warc.gz");
 
             List<Warc.WarcFilesystemEntry> entries = wf.FilesystemEntries.ToList();
 
@@ -76,8 +78,8 @@ namespace JS1
 
         public static void thdThumbnail_warc1(object id)
         {
-            string thumbs = $@"{root}{id}\thumbs\";
-            string vids = $@"{root}{id}\vids\";
+            string thumbs = $@"{_placeToLook}{id}\thumbs\";
+            string vids = $@"{_placeToLook}{id}\vids\";
 
 
 
