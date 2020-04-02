@@ -33,7 +33,7 @@ namespace JS1
             //  part3();
 
             //  roughDump_1();
-           // warc1();
+            // warc1();
             Console.ReadLine();
         }
 
@@ -70,7 +70,7 @@ namespace JS1
 
                 if (!File.Exists(vids + realname))
                     File.WriteAllBytes(vids + realname, i.ExtractResponse());
-             
+
             }
         }
 
@@ -276,6 +276,7 @@ namespace JS1
             bool regexOn = true;
             int? onlyYear = null;
             int? onlyMonth = null;
+            int? onlyDay = null;
             string cdx = "";
             Console.WriteLine("regex is set to " + regexOn.ToString());
             Console.WriteLine("Showfile is set to " + showFile.ToString());
@@ -298,9 +299,37 @@ namespace JS1
                     {
                         onlyYear = int.Parse(syr[1]);
                     }
-                    Console.WriteLine($"Set year to{onlyYear.Value}");
+                    Console.WriteLine($"Set year to {onlyYear.Value}");
                     continue;
                 }
+
+                if (cn.Contains("month:"))
+                {
+                    string[] syr = cn.Split(new char[] { ':' }, StringSplitOptions.RemoveEmptyEntries);
+
+                    if (syr.Length == 1) onlyMonth = null;
+                    else
+                    {
+                        onlyMonth = int.Parse(syr[1]);
+                    }
+                    Console.WriteLine($"Set month to {onlyMonth.Value}");
+                    continue;
+                }
+
+                if (cn.Contains("day:"))
+                {
+                    string[] syr = cn.Split(new char[] { ':' }, StringSplitOptions.RemoveEmptyEntries);
+
+                    if (syr.Length == 1) onlyDay = null;
+                    else
+                    {
+                        onlyDay = int.Parse(syr[1]);
+                    }
+                    Console.WriteLine($"Set day to {onlyDay.Value}");
+                    continue;
+                }
+
+
 
                 if (cn == "cls")
                 {
@@ -343,9 +372,11 @@ namespace JS1
                     fil = store.Where(o => rgx.IsMatch(o.flvName)).OrderBy(o => o.flvName).ToList();
                 }
                 if (onlyYear.HasValue)
-                {
                     fil = fil.Where(o => o.urlDate.Year == onlyYear.Value).ToList();
-                }
+                if (onlyMonth.HasValue)
+                    fil = fil.Where(o => o.urlDate.Month == onlyMonth.Value).ToList();
+                if (onlyDay.HasValue)
+                    fil = fil.Where(o => o.urlDate.Day == onlyDay.Value).ToList();
 
 
                 if (string.IsNullOrEmpty(cdx))
