@@ -86,7 +86,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\..\..\..\..\_work\libs\CS\WarcSharp-master\WarcSharp-master\WarcSharp.csproj">
+    <ProjectReference Include="..\WarcSharp-master\WarcSharp-master\WarcSharp.csproj">
       <Project>{51511351-a1d6-43cb-abc7-d734c5a2a24c}</Project>
       <Name>WarcSharp</Name>
     </ProjectReference>

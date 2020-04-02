@@ -27,14 +27,14 @@ namespace JS1
 
             //    part_2a();
             // part_3a_addDates();
-            //part_3a_withdates();
+            part_3a_withdates();
             //part_3a();
             //part2();
             //  part3();
 
             //  roughDump_1();
             // warc1();
-            warc1(@"C:\_temp\JustinTV\");
+            //warc1(@"C:\_temp\JustinTV\");
             Console.ReadLine();
         }
         static string _placeToLook = "";

@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.29911.84
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JS1", "JS1\JS1.csproj", "{DF966496-02B7-4517-BDC3-8D5E285BBC78}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarcSharp", "..\..\..\..\..\_work\libs\CS\WarcSharp-master\WarcSharp-master\WarcSharp.csproj", "{51511351-A1D6-43CB-ABC7-D734C5A2A24C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarcSharp", "WarcSharp-master\WarcSharp-master\WarcSharp.csproj", "{51511351-A1D6-43CB-ABC7-D734C5A2A24C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
